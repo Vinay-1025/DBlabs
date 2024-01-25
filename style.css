@@ -1,0 +1,165 @@
+body {
+    padding-top: 0px; /* Adjusted padding to accommodate fixed-top navbar */
+}
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 0;
+    }
+}
+
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.containerstart{
+    margin-top: 30px;
+}
+/* Custom styles for alignment and spacing */
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.navbar{
+    background-color: #243859;
+    color: aliceblue;
+}
+
+#tabs{
+    margin-top: 20px;
+}
+
+.container{
+    margin-top: 40px;
+}
+
+.containers{
+    margin-top: 90px;
+}
+
+
+.ll {
+    color: #c1bfbfe1;
+    background-color: #243859dc; /* Change to your desired color */
+    margin-right: 1px;
+}
+
+/* Change color when tab is active (clicked) */
+.ll.active,
+.ll:focus,
+.ll:hover {
+    color: white;
+    background-color: #243859; /* Change to your desired color */
+}
+
+
+
+
+/* new entry */
+.form-row {
+    margin-bottom: 20px;
+}
+
+.modal-body .form-check {
+    margin-bottom: 10px;
+}
+
+/* Improved spacing and max-height for responsiveness */
+.form-group {
+    max-width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    max-width: 100%;
+}
+
+.modal-content {
+    max-width: 600px;
+}
+
+.jaw-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooth {
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.tooth:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.tooth-number {
+    position: absolute;
+    top: -3px;
+    transform: translate(-50%, -10%);
+}
+
+.tooth-symbol,
+.tooth-info {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tooth-number {
+    font-size: 18px;
+    top: -15px;
+    color: #333333;
+}
+
+.tooth-symbol {
+    color: #555555;
+}
+
+.tooth-info {
+    font-size: 14px;
+    color: #888888;
+    margin-top: 5px;
+    display: none;
+}
+
+.tooth.selected {
+    background-color: #00c628;
+    color: #ffffff;
+}
+
+.horizontal-line {
+    border-top: 2px solid #007bff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.line {
+    border-top: 2px solid #ff0000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

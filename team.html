@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dental Lab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel ="stylesheet" href="style.css" type="text/css">
+    <!-- Add your custom styles or link additional stylesheets here -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dental Lab</a>
+        <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="clients.html">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accounting.html">Accounting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="containerstart">
+        <div class="container">
+            <h2>Team</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search client by name"
+                            aria-describedby="searchButton">
+                        <div class="input-group-append">
+                            <button type="button" id="searchButton"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success float-md-right" type="button" data-toggle="modal"
+                        data-target="#addTeamModel"><i class="fa fa-user-plus">Add Team</i></button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table" id="clientTable">
+                            <thead class="table-*-responsive">
+                                <tr>
+                                    <th scope="col">S.no</th>
+                                    <th scope="col">StaffName</th>
+                                    <th scope="col">Designation</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="iconsi">
+                                        <button class="btn btn-primary" type="button" id="editcase">EDIT</button>
+                                    </td>
+                                    <td class="iconsi">
+                                        <button class="btn btn-danger type=" button" id="delcase">DELETE</button>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows with client information will go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Client Modal -->
+        <div class="modal fade" id="addTeamModel" tabindex="-1" role="dialog"
+            aria-labelledby="addTeamModelLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTeamModelLabel">Add Staff</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addClientForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="staffName">Staff Name</label>
+                                    <input type="text" class="form-control" id="staffName"
+                                        placeholder="Enter staff name">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="designation">Designation</label>
+                                    <input type="text" class="form-control" id="designation"
+                                        placeholder="Enter designation">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="gender">Gender</label>
+                                    <select class="form-control" id="gender">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="phone">Phone No</label>
+                                    <input type="tel" class="form-control" id="phone"
+                                        placeholder="Enter phone number">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="altphone">Alternative No</label>
+                                    <input type="tel" class="form-control" id="altphone"
+                                        placeholder="Enter phone number">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="joiningdate">Joining Date</label>
+                                    <input type="email" class="form-control" id="joiningdate" placeholder="Enter joiningdate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Address">Address</label>
+                                <input type="text" class="form-control" id="address"
+                                    placeholder="Enter address">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="addTeambutton">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Counter for S.no
+        let clientCount = 1;
+
+        // Handle Add Client Button Click
+        $("#addTeambutton").click(function () {
+            // Get form values
+            const prefix = $("#prefix").val();
+            const firstName = $("#firstName").val();
+            const lastName = $("#lastName").val();
+            const phone = $("#phone").val();
+            const email = $("#email").val();
+            const streetAddress = $("#streetAddress").val();
+            const city = $("#city").val();
+            const state = $("#state").val();
+            const pincode = $("#pincode").val();
+
+            // Validate form fields (add your validation logic here)
+
+            // Increment client count
+            clientCount++;
+
+            // Clear the form fields
+            $("#addClientForm")[0].reset();
+
+            // Close the modal
+            $("#addTeamModel").modal('hide');
+        });
+    });
+</script>
+
+</body>
+
+</html>

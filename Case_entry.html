@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Case Entry Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body onload="setCurrentdate()">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Dental Lab</a>
+        <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="clients.html">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accounting.html">Accounting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+        </div>
+    </nav>
+    <div class="containers">
+        <div class="container mt-5">
+            <h2 class="mb-4">Case Entry Form</h2>
+            <form id="caseEntryForm">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="orderNumber">Order Number</label>
+                        <div class="input-group">
+                            <select class="custom-select col-md-3" id="orderNumberDropdown">
+                                <option value="option1">PFM</option>
+                                <option value="option2">MLS</option>
+                            </select>
+                            <div class="input-group-append col-md-3">
+                                <span class="input-group-text">BD</span>
+                            </div>
+                            <div class="input-group-append col-md-6">
+                                <input type="text" class="form-control" placeholder="Enter Order Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="orderFormNumber">Order Form Number</label>
+                        <input type="text" class="form-control" name="orderFormNumber"
+                            placeholder="Enter Order Form Number">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="orderDate">Order Date</label>
+                        <input type="date" class="form-control" name="orderDate" id="oDate" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="expectedDate">Expected Date</label>
+                        <input type="date" class="form-control" name="expectedDate" id="edate" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="expectedTime">Expected Time</label>
+                        <input type="time" class="form-control" name="expectedTime">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>Urgent</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="urgent" value="yes">
+                            <label class="form-check-label" for="urgent"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="doctorName">Doctor Name</label>
+                        <input type="text" class="form-control" name="doctorName" placeholder="Enter Doctor Name">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="caseId">Case ID</label>
+                        <input type="text" class="form-control" name="caseId" placeholder="Enter Case ID">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="patientName">Patient Name</label>
+                        <input type="text" class="form-control" name="patientName" placeholder="Enter Patient Name">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="patientGender">Patient Gender</label>
+                        <select class="custom-select" name="patientGender">
+                            <option value="N/A" selected>N/A</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Material Received</label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#materialModal">
+                            Select Materials
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="product">Product</label>
+                        <input type="text" class="form-control" name="product" placeholder="Enter Product">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="rate">Rate</label>
+                        <input type="text" class="form-control" name="rate" placeholder="Enter Rate">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="authenticateCaseId">Authenticate Case ID</label>
+                        <input class="form-control" name="authenticateCaseId" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="shade">Shade</label>
+                        <input type="text" class="form-control" name="shade" placeholder="Enter Shade">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="type">Type</label>
+                        <select class="custom-select" name="type">
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                            <option value="item4">Item 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="discount">Discount</label>
+                        <input type="text" class="form-control" name="discount" placeholder="0">
+                    </div>
+                </div>
+
+
+                <div class="teeth">
+                    <div class="jaw-section">
+                        <div class="row">
+                            <!-- Left side -->
+                            <div class="col-md-5">
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="8"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">8</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="7"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">7</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="6"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">6</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="5"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">5</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="4"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">4</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="3"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">3</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="2"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">2</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="left" data-tooth="1"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">1</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Left)</span>
+                                </div>
+                                <!-- Add other left teeth here -->
+                            </div>
+                            <!-- Add the line here -->
+                            <div class="line col-md-2 d-md-none d-lg-block"></div>
+                            <!-- Right side -->
+                            <div class="col-md-5">
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="1"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">1</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="2"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">2</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="3"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">3</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="4"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">4</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="5"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">5</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="6"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">6</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="7"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">7</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="upper" data-position="right" data-tooth="8"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">8</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Upper Right)</span>
+                                </div>
+                                <!-- Add other right teeth here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Line -->
+                    <div class="horizontal-line col-md-12"></div>
+
+                    <!-- Lower Jaw -->
+                    <div class="jaw-section">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="8"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">8</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="7"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">7</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="6"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">6</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="5"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">5</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="4"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">4</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="3"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">3</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="2"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">2</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="left" data-tooth="1"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">1</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Left)</span>
+                                </div>
+                                <!-- Add other left teeth here -->
+                            </div>
+                            <!-- Add the line here -->
+                            <div class="line col-md-2 d-md-none d-lg-block"></div>
+                            <!-- Continue with other lower right teeth -->
+                            <div class="col-md-5">
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="1"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">1</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="2"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">2</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="3"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">3</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="4"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">4</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="5"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">5</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="6"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">6</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="7"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">7</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <div class="tooth" data-jaw="lower" data-position="right" data-tooth="8"
+                                    onclick="toggleToothSelection(this)">
+                                    <span class="tooth-number">8</span>
+                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-info">(Lower Right)</span>
+                                </div>
+                                <!-- Add other lower right teeth here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="remarks">Remarks</label>
+                        <textarea class="form-control" name="remarks" rows="1" placeholder="Enter Remarks"></textarea>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="file1">Upload File1</label>
+                        <input class="form-control" name="file1" type="file" placeholder="Enter file here">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="file1">Upload File2</label>
+                        <input class="form-control" name="file2" type="file" placeholder="Enter file here">
+                    </div>
+                </div>
+
+                <button class="btn btn-dark">Back</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript for form validation or other interactions -->
+    <script>
+        // Add your JavaScript code here if needed
+    </script>
+
+    <div class="modal fade" id="materialModal" tabindex="-1" role="dialog" aria-labelledby="materialModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="materialModalLabel">Select Materials</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="impressionTray">
+                        <label class="form-check-label" for="impressionTray">Impression Tray</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="model">
+                        <label class="form-check-label" for="model">Model</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="studyCast">
+                        <label class="form-check-label" for="studyCast">Study Cast</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="biteRegistration">
+                        <label class="form-check-label" for="biteRegistration">Bite Registration</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="jawRelationBiteBlock">
+                        <label class="form-check-label" for="jawRelationBiteBlock">Jaw Relation Bite Block</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="handleDone()">Done</button>
+                    <button type="button" class="btn btn-secondary" onclick="handleClear()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleDone() {
+            // Add logic for handling selected materials and closing the modal
+            $('#materialModal').modal('hide');
+        }
+
+        function handleClear() {
+            // Add logic for clearing selected materials
+            $('input[type="checkbox"]').prop('checked', false);
+        }
+    </script>
+
+    <script>
+        // Array to store selected teeth details
+        let selectedTeethDetails = [];
+
+        // Function to handle tooth selection
+        function toggleToothSelection(tooth) {
+            tooth.classList.toggle('selected');
+        }
+
+        // Function to display selected teeth
+        function displaySelectedTeeth() {
+            const selectedTeeth = document.querySelectorAll('.tooth.selected');
+            const selectedTeethInfo = Array.from(selectedTeeth).map(tooth => {
+                return {
+                    toothNumber: tooth.dataset.tooth,
+                    jaw: tooth.dataset.jaw,
+                    position: tooth.dataset.position
+                };
+            });
+
+            // Store selected teeth details in the array
+            selectedTeethDetails.push(selectedTeethInfo);
+
+            // Display selected teeth details
+            document.getElementById('selected-teeth').innerText = `Selected Teeth Details: ${JSON.stringify(selectedTeethInfo)}`;
+
+            // Clear selected teeth
+            clearSelectedTeeth();
+        }
+
+        // Function to clear selected teeth
+        function clearSelectedTeeth() {
+            const selectedTeeth = document.querySelectorAll('.tooth.selected');
+            selectedTeeth.forEach(tooth => tooth.classList.remove('selected'));
+        }
+
+        function setCurrentdate() {
+            var currentDate = new Date();
+            var day = currentDate.getDate();
+            var month = currentDate.getMonth() + 1;
+            var year = currentDate.getFullYear();
+            var formatdate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+
+            document.getElementById("oDate").value = formatdate;
+
+            var currentDate1 = new Date();
+            var day1 = currentDate1.getDate();
+            day1 = day1 + 2;
+            var month1 = currentDate1.getMonth() + 1;
+            var year1 = currentDate1.getFullYear();
+            var formatdate1 = year1 + "-" + (month1 < 10 ? "0" + month1 : month1) + "-" + (day1 < 10 ? "0" + day1 : day1);
+
+            document.getElementById("edate").value = formatdate1;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dental Lab</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- Add your custom styles or link additional stylesheets here -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Dental Lab</a>
+        <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="clients.html">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accounting.html">Accounting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Add content specific to the Dashboard page -->
+
+    <div class="containers">
+        <div class="container">
+            <h2>Dashboard</h2>
+            <!-- Search Bar and Calendar -->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
+                    aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+                    <button class="btn btn-outline-secondary" type="button" id="calendarBtn"><i class="fa fa-calendar"></i></button>
+                </div>
+            </div>
+
+            <!-- Calendar (Hidden by default) -->
+            <div id="calendarContainer" style="display: none;">
+                <div class="input-daterange input-group" id="datepicker">
+                    <input type="text" class="form-control" name="start" id="start" />
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">to</span>
+                    </div>
+                    <input type="text" class="form-control" name="end" id="end" />
+                </div>
+            </div>
+
+            <!-- Order List -->
+            <div id="orderList" class="mt-4">
+                <h3>Orders</h3>
+                <ul id="orderItems">
+                    <!-- Order items will be dynamically added here -->
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="myTabs">
+            <li class="nav-item">
+                <a class="nav-link active ll" data-toggle="tab" href="#tab1">All Cases</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ll" data-toggle="tab" href="#tab2">Tab 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ll" data-toggle="tab" href="#tab3">Tab 3</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Tab 1 -->
+            <div id="tab1" class="tab-pane fade show active">
+                <h3>All Cases</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Field 1</th>
+                            <th scope="col">Field 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Value 1</td>
+                            <td>Value 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tab 2 -->
+            <div id="tab2" class="tab-pane fade">
+                <h3>Tab 2 Content</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Field A</th>
+                            <th scope="col">Field B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Value A1</td>
+                            <td>Value B1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tab 3 -->
+            <div id="tab3" class="tab-pane fade">
+                <h3>Tab 3 Content</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Field X</th>
+                            <th scope="col">Field Y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Value X1</td>
+                            <td>Value Y1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.nav-link').on('click', function () {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+                $('.tab-pane').removeClass('show active');
+                $($(this).attr('href')).addClass('show active');
+            });
+
+            // Initialize datepicker
+            $('#calendarBtn').on('click', function () {
+                $('#calendarContainer').toggle();
+                $('#start').datepicker({
+                    autoclose: true,
+                    format: 'mm/dd/yyyy'
+                });
+                $('#end').datepicker({
+                    autoclose: true,
+                    format: 'mm/dd/yyyy'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

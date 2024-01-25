@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dental Lab</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- Add your custom styles or link additional stylesheets here -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dental Lab</a>
+        <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="clients.html">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accounting.html">Accounting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="containerstart">
+        <div class="container">
+            <h2>Products</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#createModal">CREATE+</button>
+                    <button class="btn btn-success ml-2" data-toggle="modal" data-target="#viewPriceListModal">VIEW PRICE LIST</button>
+                </div>
+            </div>
+    
+            <div class="row tab-content">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" id="tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="products-tab" data-toggle="tab" href="#products" role="tab"
+                                aria-controls="products" aria-selected="true">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="categories-tab" data-toggle="tab" href="#categories" role="tab"
+                                aria-controls="categories" aria-selected="false">Categories</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="tabsContent">
+                        <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
+                            <!-- Product Table -->
+                            <table class="table" id="clientTable">
+                                <thead class="table-*-responsive">
+                                    <tr>
+                                        <th scope="col">Product ID</th>
+                                        <th scope="col">Product name</th>
+                                        <th scope="col">Department name</th>
+                                        <th scope="col">Warrenty</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="iconsi">
+                                            <button class="btn btn-primary" type="button" id="editcase">EDIT</button>
+                                        </td>
+                                        <td class="iconsi">
+                                            <button class="btn btn-danger type=" button" id="delcase">DELETE</button>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table rows with client information will go here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories-tab">
+                            <!-- Category Table -->
+                            <table class="table" id="clientTable">
+                                <thead class="table-*-responsive">
+                                    <tr>
+                                        <th scope="col">Category ID</th>
+                                        <th scope="col">Category name</th>
+                                        <th scope="col">Department name</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="iconsi">
+                                            <button class="btn btn-primary" type="button" id="editcase">EDIT</button>
+                                            <button class="btn btn-danger type=" button" id="delcase">DELETE</button>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table rows with client information will go here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Create Modal -->
+        <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createModalLabel">CREATE+</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Choose what you want to create:</p>
+                        <button class="btn btn-primary" onclick="createProduct()">Product</button>
+                        <button class="btn btn-success ml-2" onclick="openCreateCategoryModal()">Category</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Create Category Modal -->
+        <div class="modal fade" id="createCategoryModal" tabindex="-1" role="dialog"
+            aria-labelledby="createCategoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createCategoryModalLabel">Create New Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="categoryName">Category Name</label>
+                                <input type="text" class="form-control" id="categoryName">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                            <button type="button" class="btn btn-success ml-2" onclick="createCategory()">CREATE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Product Creation Modal -->
+        <div class="modal fade" id="productCreationModal" tabindex="-1" role="dialog"
+            aria-labelledby="productCreationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productCreationModalLabel">Create New Product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="selectCategory">Select a category</label>
+                                    <select class="form-control" id="selectCategory">
+                                        <option value="crown">Crown</option>
+                                        <option value="bridge">Bridge</option>
+                                        <option value="inlay">Inlay</option>
+                                        <option value="fullDenture">Full Denture</option>
+                                        <option value="skeletal">Skeletal</option>
+                                        <option value="acrylic">Acrylic</option>
+                                        <option value="misc">Misc</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" class="form-control" id="productName">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="prefix">Prefix</label>
+                                    <input type="text" class="form-control" id="prefix">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="duration">Duration</label>
+                                    <input type="text" class="form-control" id="duration">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="manufacturingCost">Manufacturing Cost</label>
+                                    <input type="text" class="form-control" id="manufacturingCost">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pricingType">Pricing Type</label>
+                                <select class="form-control" id="pricingType" onchange="handlePricingTypeChange()">
+                                    <option value="perUnit">Per Unit</option>
+                                    <option value="perJaw">Per Jaw</option>
+                                    <option value="dynamic">Dynamic (per unit)</option>
+                                    <option value="variable">Variable (per unit)</option>
+                                </select>
+                            </div>
+                            <div id="dynamicFields" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="basePrice">Base Price</label>
+                                        <input type="text" class="form-control" id="basePrice">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="extraPrice">Extra Price Per Unit</label>
+                                        <input type="text" class="form-control" id="extraPrice">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="variablePricingChart" class="variable-pricing-chart" style="display: none;">
+                                <h6>Variable Pricing Chart</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Unit</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="variablePricingBody">
+                                        <!-- Variable pricing rows will go here -->
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-primary" onclick="addVariablePricingCase()">Add Case</button>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="submitProduct()">CREATE NEW
+                                PRODUCT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- View Price List Modal -->
+        <div class="modal fade" id="viewPriceListModal" tabindex="-1" role="dialog"
+            aria-labelledby="viewPriceListModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="viewPriceListModalLabel">VIEW PRICE LIST</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Display all products and categories -->
+                        <!-- Add PRINT button if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script>
+        function openCreateCategoryModal() {
+            $('#createModal').modal('hide');
+            $('#createCategoryModal').modal('show');
+        }
+
+        function createCategory() {
+            // Logic to handle category creation
+            // You can access the category name using jQuery or vanilla JavaScript
+            // For simplicity, let's just show an alert here
+            var categoryName = $('#categoryName').val();
+            alert('Category created successfully: ' + categoryName);
+            $('#createCategoryModal').modal('hide');
+        }
+        // Existing functions...
+
+        function createProduct() {
+            $('#createModal').modal('hide');
+            $('#productCreationModal').modal('show');
+        }
+
+        function submitProduct() {
+            // Logic to handle product submission
+            // You can access the form data using jQuery or vanilla JavaScript
+            // For simplicity, let's just show an alert here
+            alert('Product created successfully!');
+            $('#productCreationModal').modal('hide');
+        }
+
+        function handlePricingTypeChange() {
+            var pricingType = $('#pricingType').val();
+            if (pricingType === 'dynamic') {
+                $('#dynamicFields').show();
+                $('#variablePricingChart').hide();
+            } else if (pricingType === 'variable') {
+                $('#dynamicFields').hide();
+                $('#variablePricingChart').show();
+            } else {
+                $('#dynamicFields').hide();
+                $('#variablePricingChart').hide();
+            }
+        }
+
+        function addVariablePricingCase() {
+            var unit = prompt('Enter Unit:');
+            var price = prompt('Enter Price:');
+
+            // You can add validation and error handling here
+
+            var row = '<tr>' +
+                '<td>' + unit + '</td>' +
+                '<td>' + price + '</td>' +
+                '<td><span class="delete-icon" onclick="deleteVariablePricingCase(this)">Delete</span></td>' +
+                '</tr>';
+
+            $('#variablePricingBody').append(row);
+        }
+
+        function deleteVariablePricingCase(element) {
+            // Remove the corresponding row when delete is clicked
+            $(element).closest('tr').remove();
+        }
+    </script>
+    <!-- Include your scripts here -->
+
+</body>
+
+</html>

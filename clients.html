@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dental Lab</title>
+    <link rel ="stylesheet" href="style.css" type="text/css">
+    <!-- Add your custom styles or link additional stylesheets here -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dental Lab</a>
+        <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="clients.html">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accounting.html">Accounting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reports.html">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="containerstart">
+        <div class="container">
+            <h2>Clients</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search client by name"
+                            aria-describedby="searchButton">
+                        <div class="input-group-append">
+                            <button type="button" id="searchButton"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success float-md-right" type="button" data-toggle="modal"
+                        data-target="#addClientModal"><i class="fa fa-user-plus">Add Client</i></button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table" id="clientTable">
+                            <thead class="table-*-responsive">
+                                <tr>
+                                    <th scope="col">S.no</th>
+                                    <th scope="col">FullName</th>
+                                    <th scope="col">Partnership</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="iconsi">
+                                        <button class="btn btn-primary" type="button" id="editcase">EDIT</button>
+                                    </td>
+                                    <td class="iconsi">
+                                        <button class="btn btn-danger type=" button" id="delcase">DELETE</button>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows with client information will go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Client Modal -->
+        <div class="modal fade" id="addClientModal" tabindex="-1" role="dialog"
+            aria-labelledby="addClientModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addClientModalLabel">Add Client</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addClientForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="prefix">Prefix</label>
+                                    <select class="form-control" id="prefix">
+                                        <option>Dr</option>
+                                        <option>Mr</option>
+                                        <option>Mrs</option>
+                                        <option>Ms</option>
+                                        <option>Miss</option>
+                                        <option>None</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="firstName"
+                                        placeholder="Enter first name">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName"
+                                        placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="phone">Phone No</label>
+                                    <input type="tel" class="form-control" id="phone"
+                                        placeholder="Enter phone number">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="streetAddress">Street Address</label>
+                                <input type="text" class="form-control" id="streetAddress"
+                                    placeholder="Enter street address">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter city">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="state">State</label>
+                                    <select class="form-control" id="state">
+                                        <!-- Add all states in India as options -->
+                                        <option>Andhra Pradesh</option>
+                                        <option>Arunachal Pradesh</option>
+                                        <!-- Add other states -->
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="text" class="form-control" id="pincode"
+                                        placeholder="Enter pincode">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="addClientBtn">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Counter for S.no
+        let clientCount = 1;
+
+        // Handle Add Client Button Click
+        $("#addClientBtn").click(function () {
+            // Get form values
+            const prefix = $("#prefix").val();
+            const firstName = $("#firstName").val();
+            const lastName = $("#lastName").val();
+            const phone = $("#phone").val();
+            const email = $("#email").val();
+            const streetAddress = $("#streetAddress").val();
+            const city = $("#city").val();
+            const state = $("#state").val();
+            const pincode = $("#pincode").val();
+
+            // Validate form fields (add your validation logic here)
+
+            // Add client to the table
+            $("#clientTable tbody").append(`
+                <tr>
+                    <td>${clientCount}</td>
+                    <td>${prefix} ${firstName} ${lastName}</td>
+                    <td>Partnership</td>
+                    <td>${phone}</td>
+                    <td>${streetAddress}, ${city}, ${state} - ${pincode}</td>
+                    <td>${email}</td>
+                </tr>
+            `);
+
+            // Increment client count
+            clientCount++;
+
+            // Clear the form fields
+            $("#addClientForm")[0].reset();
+
+            // Close the modal
+            $("#addClientModal").modal('hide');
+        });
+    });
+</script>
+
+</body>
+
+</html>
