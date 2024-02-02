@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dental Lab</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <!-- Add your custom styles or link additional stylesheets here -->
 </head>
 
@@ -15,6 +16,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Dental Lab</a>
         <a href="Case_entry.html"><button class="btn-secondary">NEW ENTRY</button></a>
+        <button class="btn-secondary" data-toggle="modal" data-target="#createModal">
+            RE-ENTRY
+        </button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,32 +63,53 @@
             <!-- Search Bar and Calendar -->
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
-                    aria-describedby="basic-addon2">
+                    aria-describedby="basic-addon2" />
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fa fa-search"></i></button>
-                    <button class="btn btn-outline-secondary" type="button" id="calendarBtn"><i class="fa fa-calendar"></i></button>
+                    <button class="btn btn-outline-dark" type="button" id="searchBtn">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Calendar (Hidden by default) -->
-            <div id="calendarContainer" style="display: none;">
-                <div class="input-daterange input-group" id="datepicker">
-                    <input type="text" class="form-control" name="start" id="start" />
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">to</span>
+            <div class="containerw">
+                <div class="row">
+                    <div class="col-md-4 lol">
+                        <div id="newOrder" class="stage">
+                            <h4>New Order</h4>
+                            <p>1</p>
+                        </div>
                     </div>
-                    <input type="text" class="form-control" name="end" id="end" />
+                    <div class="col-md-4">
+                        <div id="inProduction" class="stage">
+                            <h4>In-Production</h4>
+                            <p>45</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="shipped" class="stage">
+                            <h4>Shipped</h4>
+                            <p>67</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Order List -->
-            <div id="orderList" class="mt-4">
-                <h3>Orders</h3>
-                <ul id="orderItems">
-                    <!-- Order items will be dynamically added here -->
-                </ul>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <div class="input-group">
+                            <label class="input-group-text" for="viewOption">View Option:
+                            </label>
+                            <select class="form-select bg-light" id="viewOption">
+                                <option value="weekly">Weekly</option>
+                                <option value="daily">Daily</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+
+            <canvas id="monthlyWorkflowChart"></canvas>
         </div>
     </div>
 
@@ -169,36 +194,200 @@
         </div>
     </div>
 
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Enter The CASE ID</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="caseIdInput">Case ID:</label>
+                        <input type="text" class="form-control" id="caseIdInput" placeholder="Enter Case ID" />
+                    </div>
+                    <button class="btn btn-info" onclick="checkDetails()">
+                        Check Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="caseDetailsForm"></div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script>
+        function checkDetails() {
+            // Retrieve the case ID entered by the user
+            var caseId = document.getElementById('caseIdInput').value;
+
+            // Call a function to fetch details related to the case ID
+            var caseDetails = fetchCaseDetails(caseId);
+
+            // Close the modal for Case ID form
+            $('#createModal').modal('hide');
+
+            // Display the popup with the fetched details
+            displayCaseDetailsPopup(caseDetails);
+        }
+
+        // Example function to fetch case details from a database or server
+        function fetchCaseDetails(caseId) {
+            // In this example, we'll return dummy data
+            // Replace this with actual logic to fetch case details from your backend
+            return {
+                name: 'John Doe',
+                age: 30,
+                location: 'New York',
+                // Add more details as needed
+            };
+        }
+
+        // Function to display the popup with case details
+        function displayCaseDetailsPopup(caseDetails) {
+            // Construct the HTML content for the popup
+            var popupContent = '<div class="modal fade" id="caseDetailsPopup" tabindex="-1" role="dialog" aria-labelledby="caseDetailsPopupLabel" aria-hidden="true">';
+            popupContent += '<div class="modal-dialog" role="document">';
+            popupContent += '<div class="modal-content">';
+            popupContent += '<div class="modal-header">';
+            popupContent += '<h5 class="modal-title" id="caseDetailsPopupLabel">Case Details</h5>';
+            popupContent += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+            popupContent += '<span aria-hidden="true">&times;</span>';
+            popupContent += '</button>';
+            popupContent += '</div>';
+            popupContent += '<div class="modal-body">';
+            popupContent += '<p><strong>Name:</strong> ' + caseDetails.name + '</p>';
+            popupContent += '<p><strong>Age:</strong> ' + caseDetails.age + '</p>';
+            popupContent += '<p><strong>Location:</strong> ' + caseDetails.location + '</p>';
+            // Add more details as needed
+            popupContent += '</div>';
+            popupContent += '<div class="modal-footer">';
+            popupContent += '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+            popupContent += '</div>';
+            popupContent += '</div>';
+            popupContent += '</div>';
+            popupContent += '</div>';
+
+            // Append the popup HTML content to the body
+            $('body').append(popupContent);
+
+            // Show the popup
+            $('#caseDetailsPopup').modal('show');
+        }
+    </script>
+
 
     <script>
         $(document).ready(function () {
-            $('.nav-link').on('click', function () {
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-                $('.tab-pane').removeClass('show active');
-                $($(this).attr('href')).addClass('show active');
+            $(".nav-link").on("click", function () {
+                $(".nav-link").removeClass("active");
+                $(this).addClass("active");
+                $(".tab-pane").removeClass("show active");
+                $($(this).attr("href")).addClass("show active");
             });
 
             // Initialize datepicker
-            $('#calendarBtn').on('click', function () {
-                $('#calendarContainer').toggle();
-                $('#start').datepicker({
+            $("#calendarBtn").on("click", function () {
+                $("#calendarContainer").toggle();
+                $("#start").datepicker({
                     autoclose: true,
-                    format: 'mm/dd/yyyy'
+                    format: "mm/dd/yyyy",
                 });
-                $('#end').datepicker({
+                $("#end").datepicker({
                     autoclose: true,
-                    format: 'mm/dd/yyyy'
+                    format: "mm/dd/yyyy",
                 });
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document
+                .getElementById("monthlyWorkflowChart")
+                .getContext("2d");
 
+            // Initial data for weekly view
+            const weeklyLabels = ["Week 1", "Week 2", "Week 3", "Week 4"];
+            const weeklyCompletedTasks = [5, 8, 6, 1000];
+            const weeklyIncompleteTasks = [0, 0, 0, 0];
+
+            const chart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: weeklyLabels,
+                    datasets: [
+                        {
+                            label: "Completed Tasks",
+                            data: weeklyCompletedTasks,
+                            borderColor: "rgba(54, 162, 235, 1)",
+                            backgroundColor: "rgba(54, 162, 235, 0.2)",
+                            borderWidth: 2,
+                        },
+                        {
+                            label: "Incomplete Tasks",
+                            data: weeklyIncompleteTasks,
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4, // Adjust the tension for smoothness
+                        },
+                    },
+                },
+            });
+
+            // Listen for changes in the view option
+            document
+                .getElementById("viewOption")
+                .addEventListener("change", function () {
+                    const option = this.value;
+                    if (option === "daily") {
+                        // Update data for daily view (for demonstration purposes, data is random)
+                        const dailyLabels = Array.from(
+                            { length: 31 },
+                            (_, i) => "Day " + (i + 1)
+                        );
+                        const dailyCompletedTasks = Array.from(
+                            { length: 31 },
+                            () => Math.floor(Math.random() * 10) + 1
+                        );
+                        const dailyIncompleteTasks = Array.from(
+                            { length: 31 },
+                            () => Math.floor(Math.random() * 10) + 1
+                        );
+
+                        // Update chart data for daily view
+                        chart.data.labels = dailyLabels;
+                        chart.data.datasets[0].data = dailyCompletedTasks;
+                        chart.data.datasets[1].data = dailyIncompleteTasks;
+                        chart.update();
+                    } else if (option === "weekly") {
+                        // Update chart data for weekly view
+                        chart.data.labels = weeklyLabels;
+                        chart.data.datasets[0].data = weeklyCompletedTasks;
+                        chart.data.datasets[1].data = weeklyIncompleteTasks;
+                        chart.update();
+                    }
+                });
+        });
+    </script>
 </body>
 
 </html>

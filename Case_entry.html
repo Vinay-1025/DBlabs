@@ -102,10 +102,6 @@
                         <label for="doctorName">Doctor Name</label>
                         <input type="text" class="form-control" name="doctorName" placeholder="Enter Doctor Name">
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="caseId">Case ID</label>
-                        <input type="text" class="form-control" name="caseId" placeholder="Enter Case ID">
-                    </div>
                     <div class="form-group col-md-3">
                         <label for="patientName">Patient Name</label>
                         <input type="text" class="form-control" name="patientName" placeholder="Enter Patient Name">
@@ -119,6 +115,10 @@
                         </select>
                     </div>
                     <div class="form-group col-md-2">
+                        <label for="authenticateCaseId">Authenticate Case ID</label>
+                        <input class="form-control" name="authenticateCaseId" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
                         <label>Material Received</label>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#materialModal">
                             Select Materials
@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label for="product">Product</label>
                         <input type="text" class="form-control" name="product" placeholder="Enter Product">
                     </div>
@@ -135,15 +135,11 @@
                         <label for="rate">Rate</label>
                         <input type="text" class="form-control" name="rate" placeholder="Enter Rate">
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="authenticateCaseId">Authenticate Case ID</label>
-                        <input class="form-control" name="authenticateCaseId" placeholder="">
-                    </div>
                     <div class="form-group col-md-2">
                         <label for="shade">Shade</label>
                         <input type="text" class="form-control" name="shade" placeholder="Enter Shade">
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label for="type">Type</label>
                         <select class="custom-select" name="type">
                             <option value="item1">Item 1</option>
@@ -152,7 +148,7 @@
                             <option value="item4">Item 4</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-1">
+                    <div class="form-group col-md-2">
                         <label for="discount">Discount</label>
                         <input type="text" class="form-control" name="discount" placeholder="0">
                     </div>
@@ -167,49 +163,49 @@
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="8"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">8</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="7"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">7</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="6"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">6</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="5"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">5</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="4"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">4</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="3"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">3</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="canine.png"/><span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="2"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">2</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="left" data-tooth="1"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">1</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Upper Left)</span>
                                 </div>
                                 <!-- Add other left teeth here -->
@@ -221,49 +217,49 @@
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="1"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">1</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="2"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">2</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="3"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">3</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="canine.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="4"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">4</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="5"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">5</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="6"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">6</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="7"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">7</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="upper" data-position="right" data-tooth="8"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">8</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Upper Right)</span>
                                 </div>
                                 <!-- Add other right teeth here -->
@@ -281,49 +277,49 @@
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="8"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">8</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="7"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">7</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="6"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">6</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="5"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">5</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="4"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">4</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="3"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">3</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="canine.png"></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="2"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">2</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="left" data-tooth="1"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">1</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></i></span>
                                     <span class="tooth-info">(Lower Left)</span>
                                 </div>
                                 <!-- Add other left teeth here -->
@@ -335,49 +331,49 @@
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="1"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">1</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="2"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">2</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="inciers.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="3"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">3</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="canine.png"></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="4"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">4</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="5"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">5</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="premolar.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="6"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">6</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="7"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">7</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <div class="tooth" data-jaw="lower" data-position="right" data-tooth="8"
                                     onclick="toggleToothSelection(this)">
                                     <span class="tooth-number">8</span>
-                                    <span class="tooth-symbol"><i class="fas fa-tooth"></i></span>
+                                    <span class="tooth-symbol"><img class="img img-fluid" src="molar.png"/></span>
                                     <span class="tooth-info">(Lower Right)</span>
                                 </div>
                                 <!-- Add other lower right teeth here -->
@@ -524,6 +520,96 @@
             document.getElementById("edate").value = formatdate1;
         }
     </script>
+
+    <script>
+        // Arrays to store selected teeth details for each quarter
+        let upperLeftTeeth = [];
+        let upperRightTeeth = [];
+        let lowerLeftTeeth = [];
+        let lowerRightTeeth = [];
+
+        // Function to handle tooth selection
+        function toggleToothSelection(tooth) {
+            tooth.classList.toggle('selected');
+
+            // Get tooth details
+            const toothDetails = {
+                toothNumber: tooth.dataset.tooth,
+                jaw: tooth.dataset.jaw,
+                position: tooth.dataset.position
+            };
+
+            // Store tooth number in the respective quarter array
+            switch (toothDetails.position) {
+                case 'left':
+                    if (toothDetails.jaw === 'upper') {
+                        updateTeethArray(upperLeftTeeth, toothDetails.toothNumber);
+                    } else if (toothDetails.jaw === 'lower') {
+                        updateTeethArray(lowerLeftTeeth, toothDetails.toothNumber);
+                    }
+                    break;
+                case 'right':
+                    if (toothDetails.jaw === 'upper') {
+                        updateTeethArray(upperRightTeeth, toothDetails.toothNumber);
+                    } else if (toothDetails.jaw === 'lower') {
+                        updateTeethArray(lowerRightTeeth, toothDetails.toothNumber);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            // Print the arrays
+            printArrays();
+        }
+
+        // Function to update teeth array
+        function updateTeethArray(array, toothNumber) {
+            const index = array.indexOf(toothNumber);
+            if (index === -1) {
+                array.push(toothNumber);
+            } else {
+                array.splice(index, 1);
+            }
+        }
+
+        // Function to print the arrays
+        function printArrays() {
+            console.log('UPPER LEFT ::', upperLeftTeeth);
+            console.log('UPPER RIGHT ::', upperRightTeeth);
+            console.log('LOWER LEFT ::', lowerLeftTeeth);
+            console.log('LOWER RIGHT ::', lowerRightTeeth);
+        }
+
+        // Function to display selected teeth details
+        function displaySelectedTeeth() {
+            // Display details for each quarter on the screen
+            document.getElementById('upperLeftTeeth').innerText = 'UPPER LEFT :: ' + upperLeftTeeth.join(', ');
+            document.getElementById('upperRightTeeth').innerText = 'UPPER RIGHT :: ' + upperRightTeeth.join(', ');
+            document.getElementById('lowerLeftTeeth').innerText = 'LOWER LEFT :: ' + lowerLeftTeeth.join(', ');
+            document.getElementById('lowerRightTeeth').innerText = 'LOWER RIGHT :: ' + lowerRightTeeth.join(', ');
+
+            // Print the arrays in the console
+            printArrays();
+
+            // Clear selected teeth
+            clearSelectedTeeth();
+        }
+
+        // Function to clear selected teeth
+        function clearSelectedTeeth() {
+            const selectedTeeth = document.querySelectorAll('.tooth.selected');
+            selectedTeeth.forEach(tooth => tooth.classList.remove('selected'));
+
+            // Clear the arrays
+            upperLeftTeeth = [];
+            upperRightTeeth = [];
+            lowerLeftTeeth = [];
+            lowerRightTeeth = [];
+        }
+    </script>
+
 </body>
 
 </html>
+

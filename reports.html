@@ -7,8 +7,42 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Dental Lab</title>
-    <link rel ="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <!-- Add your custom styles or link additional stylesheets here -->
+    <style>
+        /* Add custom styles for interactive buttons */
+        .btn-outline-custom {
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-outline-custom.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Hide other parts of the page during printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #reportContent, #reportContent * {
+                visibility: visible;
+            }
+
+            #reportContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -52,16 +86,75 @@
         </div>
     </nav>
 
-    <div class="containerstart">
-
+    <div class="container mt-5">
+        <h1 class="mb-4">Report Generator</h1>
+        <div class="row">
+            <!-- Search Bar -->
+            <div class="col-md-6 mb-3 mt-4">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="searchButton"><i
+                                class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Dropdown -->
+            <div class="col-md-4 mb-3 mt-4">
+                <div class="form-group">
+                    <select class="form-control" id="exampleDropdown">
+                        <option value="rptype" selected disabled>Select Report Type</option>
+                        <option value="report1">Report 1</option>
+                        <option value="report2">Report 2</option>
+                        <option value="report3">Report 3</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Print Button -->
+            <div class="col-md-2 mb-3 mt-4">
+                <button class="btn btn-outline-danger btn-block" id="printButton">Print Report</button>
+            </div>
+        </div>
+        <!-- Report Content -->
+        <div id="reportContent" class="mt-4">
+            <!-- This is where your report content will be displayed -->
+            <!-- You can dynamically populate this area with data -->
+        </div>
     </div>
+
     <!-- Add content specific to the Dashboard page -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('exampleDropdown').addEventListener('change', function() {
+            var selectedReport = this.value;
+            var reportContent = document.getElementById('reportContent');
+            // Clear previous content
+            reportContent.innerHTML = '';
+            // Add content based on selected report type
+            switch (selectedReport) {
+                case 'report1':
+                    reportContent.innerHTML = '<h2>Report 1 Content</h2><p>This is the content for Report 1.</p>';
+                    break;
+                case 'report2':
+                    reportContent.innerHTML = '<h2>Report 2 Content</h2><p>This is the content for Report 2.</p>';
+                    break;
+                case 'report3':
+                    reportContent.innerHTML = '<h2>Report 3 Content</h2><p>This is the content for Report 3.</p>';
+                    break;
+                default:
+                    reportContent.innerHTML = '';
+            }
+        });
 
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
 </body>
 
 </html>
